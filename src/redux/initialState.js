@@ -13,14 +13,14 @@ const initialState = {
       category: 'bed',
       price: 30,
       stars: 2,
-      promo: 'sale',
+      //promo: 'sale',
       newFurniture: true,
     },
     {
       id: 'aenean-ru-bristique-2',
       name: 'Aenean Ru Bristique 2',
       category: 'bed',
-      price: 30,
+      price: 20,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -29,7 +29,7 @@ const initialState = {
       id: 'aenean-ru-bristique-3',
       name: 'Aenean Ru Bristique 3',
       category: 'bed',
-      price: 30,
+      price: 35,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
@@ -227,6 +227,12 @@ const initialState = {
   cart: {
     products: [],
   },
+  promos: [
+    {
+      id: 'sale',
+      rate: 0.2,
+    },
+  ],
 };
 
 export default initialState;
