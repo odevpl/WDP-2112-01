@@ -75,4 +75,18 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .price {
+    display: flex;
+
+    .noPromoPrice {
+      display:flex;
+      align-items: center;
+      padding-right: 5px;
+      text-decoration: line-through 2px $text-dark;
+      font-size: 13px;
+      color: $text-grey;
+
+    }
+  }
 }
