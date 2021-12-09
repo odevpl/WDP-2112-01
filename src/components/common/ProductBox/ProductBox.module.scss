@@ -31,6 +31,8 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      opacity: 0;
+      transition: 0.2s ease-in-out;
     }
   }
 
@@ -75,4 +77,17 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  &:hover {
+    .buttons {
+      opacity: 1;
+    }
+    
+    .price div {
+      background-color: $primary;
+      color: black;
+    }
+  }
 }
+
+
