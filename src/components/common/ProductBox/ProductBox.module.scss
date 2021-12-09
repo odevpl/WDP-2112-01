@@ -31,6 +31,8 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      opacity: 0;
+      transition: 0.2s ease-in-out;
     }
   }
 
@@ -86,7 +88,19 @@
       text-decoration: line-through 2px $text-dark;
       font-size: 13px;
       color: $text-grey;
-
     }
   }
+
+  &:hover {
+    .buttons {
+      opacity: 1;
+    }
+    
+    .price div:not(.noPromoPrice) {
+      background-color: $primary;
+      color: black;
+    }
+  } 
 }
+
+
