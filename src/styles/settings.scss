@@ -1,13 +1,24 @@
 $base-padding: 24px;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+// NOT USED
 
-$primary: #d58e32;
+$lightGray: #434343;
+$gray: #363636;
+$darkGray: #2a2a2a;
+$orange: #d58e32;
+$lightBlack: #292929;
 
-$text-color: #2a2a2a;
+// USED
 
-$form-border-color: #292929;
+$header-topbar-bg: $lightGray;
+$header-bg: $gray;
+
+$footer-claim-bg: $darkGray;
+$footer-bg: $gray;
+
+$primary: $orange;
+
+$text-color: $darkGray;
+
+$form-border-color: $lightBlack;
