@@ -29,7 +29,7 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products, promos } = this.props;
+    const { categories, products, promos, changeFavourite } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -82,6 +82,7 @@ class NewFurniture extends React.Component {
                 <ProductBox
                   {...item}
                   noPromoPrice={this.getNoPromoPrice(item.price, item.promo, promos)}
+                  changeFavourite={changeFavourite}
                 />
               </div>
             ))}
@@ -115,8 +116,10 @@ NewFurniture.propTypes = {
       stars: PropTypes.number,
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
+      heart: PropTypes.bool,
     })
   ),
+  changeFavourite: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
