@@ -9,21 +9,56 @@
   .category {
     border-right: 1px solid $form-border-color;
     display: flex;
-    align-items: center;
     position: relative;
 
     .icon:first-child {
       color: $primary;
-      position: absolute;
-      left: 10px;
-      z-index: 0;
+      width: 100%;
+      padding-left: 10px;
+      margin: auto;
     }
 
     .icon:last-child {
-      position: absolute;
-      right: 10px;
-      z-index: 0;
+      width: 100%;
+      padding-right: 10px;
+      margin:auto;
     }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 0;
+      white-space: nowrap;
+      cursor: pointer;
+      z-index: 10;
+
+      &.categoryList {
+        position: relative;
+        top: 50%;
+        transform: translateY(-11px);
+        padding: 0 10px;
+
+        ul {
+          opacity: 0;
+          margin-top: 20px;
+          background-color: $body-bg;
+          padding: 5px;
+          border: 1px solid $feature-box-border-color;
+          border-radius: 5%;
+          transition: opacity .5s;
+
+          li:hover {
+            color: $feature-box-border-color;
+          }
+        }
+      }
+
+      &:hover ul {
+        opacity: 1;
+      }
+    }
+
+
 
     select {
       -webkit-appearance: none;
