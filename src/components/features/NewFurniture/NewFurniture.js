@@ -18,8 +18,18 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
+  getNoPromoPrice(promoPrice, promoId, promosAll) {
+    const promoInfo = promosAll.find(promo => promoId === promo.id);
+    return promoInfo
+      ? (promoPrice / (1 - promoInfo.rate)).toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        })
+      : '';
+  }
+
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, promos } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -69,7 +79,10 @@ class NewFurniture extends React.Component {
           <div className='row'>
             {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
               <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
+                <ProductBox
+                  {...item}
+                  noPromoPrice={this.getNoPromoPrice(item.price, item.promo, promos)}
+                />
               </div>
             ))}
           </div>
@@ -85,6 +98,12 @@ NewFurniture.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       name: PropTypes.string,
+    })
+  ),
+  promos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      rate: PropTypes.number,
     })
   ),
   products: PropTypes.arrayOf(
@@ -103,6 +122,7 @@ NewFurniture.propTypes = {
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
+  promos: [],
 };
 
 export default NewFurniture;
