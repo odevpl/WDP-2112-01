@@ -31,6 +31,8 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      opacity: 0;
+      transition: 0.2s ease-in-out;
     }
   }
 
@@ -75,4 +77,40 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .heart {
+    background-color: #2a2a2a;
+    color: #e1e1e1;
+  }
+
+  .arrows {
+    background-color: #2a2a2a;
+    color: #e1e1e1;
+  }
+
+  .price {
+    display: flex;
+
+    .noPromoPrice {
+      display:flex;
+      align-items: center;
+      padding-right: 5px;
+      text-decoration: line-through 2px $text-dark;
+      font-size: 13px;
+      color: $text-grey;
+    }
+  }
+
+  &:hover {
+    .buttons {
+      opacity: 1;
+    }
+    
+    .price div:not(.noPromoPrice) {
+      background-color: $primary;
+      color: black;
+    }
+  } 
 }
+
+
