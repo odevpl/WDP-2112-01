@@ -15,3 +15,9 @@ $form-border-color: #292929;
 $text-grey: #a5a5a5;
 
 $text-dark: #000;
+
+@mixin hover-animation {
+  tansition: all 0.25s,
+             color 0.25s,
+             background-color 0.25s;
+}
