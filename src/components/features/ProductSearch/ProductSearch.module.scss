@@ -1,51 +1,62 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $form-border-color;
   display: inline-flex;
   height: 45px;
   color: $text-color;
 
   .category {
-    border-right: 1px solid $form-border-color;
-    display: flex;
+    border: 1px solid $form-border-color;
+    border-right: none;
     position: relative;
+
+    &:hover {
+      border-bottom: none;
+    }
 
     .icon:first-child {
       color: $primary;
-      width: 100%;
-      padding-left: 10px;
-      margin: auto;
+      width: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10px;
+      position: absolute;
     }
 
     .icon:last-child {
-      width: 100%;
-      padding-right: 10px;
-      margin:auto;
+      width: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      position: absolute;
     }
 
     ul {
       list-style-type: none;
-      padding: 0;
-      margin-bottom: 0;
+      padding-left: 0;
       white-space: nowrap;
       cursor: pointer;
       z-index: 10;
 
-      &.categoryList {
+      li {
+        line-height: 45px;
+        padding: 0 30px 0 40px;
         position: relative;
-        top: 50%;
-        transform: translateY(-11px);
-        padding: 0 10px;
 
         ul {
+          position: absolute;
+          left: 0;
+          width: 100%;
           opacity: 0;
-          margin-top: 20px;
+          padding-bottom: 10px;
           background-color: $body-bg;
-          padding: 10px 5px;
-          border: 1px solid $feature-box-border-color;
-          border-radius: 5%;
+          border: 1px solid $form-border-color;
+          border-top: none;
           transition: opacity .5s;
+
+          li {
+            line-height: 2;
+          }
 
           li:hover {
             color: $feature-box-border-color;
@@ -74,6 +85,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    border: 1px solid $form-border-color;
 
     input {
       border: 0;
