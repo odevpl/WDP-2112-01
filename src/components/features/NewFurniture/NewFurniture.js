@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
-import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipe from '../../common/Swipe/Swipe';
+import ProductCompareBar from '../../common/ProductCompareBar/ProductCompareBarContainer';
+import ProductBox from '../../common/ProductBox/ProductBoxContainer';
 
 class NewFurniture extends React.Component {
   state = {
@@ -44,9 +44,9 @@ class NewFurniture extends React.Component {
     const promoInfo = promosAll.find(promo => promoId === promo.id);
     return promoInfo
       ? (promoPrice / (1 - promoInfo.rate)).toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'USD',
-        })
+        style: 'currency',
+        currency: 'USD',
+      })
       : '';
   }
 
@@ -117,6 +117,7 @@ class NewFurniture extends React.Component {
             </div>
           </div>
         </div>
+        <ProductCompareBar />
       </Swipe>
     );
   }
