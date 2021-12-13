@@ -10,7 +10,7 @@ const ProductSearch = ({ allCategories, activeCategoryId, changeActiveCategory }
   <form action='' className={styles.root}>
     <div className={styles.category}>
       <FontAwesomeIcon className={styles.icon} icon={faListUl} />
-      <ul className={styles.categoryList}>
+      <ul>
         <li>
           Select a category
           <ul>
