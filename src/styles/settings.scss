@@ -8,8 +8,10 @@ $gray: #363636;
 $darkGray: #2a2a2a;
 $orange: #d58e32;
 $lightBlack: #292929;
-
+$black: #000;
+$grey: #a5a5a5;
 // USED
+
 
 $header-topbar-bg: $lightGray;
 $header-bg: $gray;
@@ -22,3 +24,14 @@ $primary: $orange;
 $text-color: $darkGray;
 
 $form-border-color: $lightBlack;
+
+$text-grey: $grey;
+
+$text-dark: $black;
+
+@mixin hover-animation {
+  tansition: all 0.25s,
+             color 0.25s,
+             background-color 0.25s;
+}
+
