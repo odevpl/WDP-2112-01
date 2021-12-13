@@ -7,7 +7,6 @@
 
   .category {
     border: 1px solid $form-border-color;
-    border-right: none;
     position: relative;
 
     &:hover {
@@ -86,6 +85,7 @@
     align-items: center;
     position: relative;
     border: 1px solid $form-border-color;
+    border-left: none;
 
     input {
       border: 0;
