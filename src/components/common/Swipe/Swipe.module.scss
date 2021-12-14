@@ -1,0 +1,28 @@
+@import "../../../styles/settings.scss";
+
+.iconsWrapper {
+  position: sticky;
+  height: 0;
+  top: calc((100vh - 405px) / 2);
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+
+  .icon {
+    font-size: 80px;
+    cursor: pointer;
+    color: $text-grey;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:first-of-type {
+      margin-left: 120px;
+    }
+
+    &:last-of-type {
+      margin-right: 120px;
+    }
+  }
+}
