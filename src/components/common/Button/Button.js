@@ -19,7 +19,7 @@ const Button = ({ children, variant, noHover, className: propClassName, ...props
   }
 
   return (
-    <Comp href='#' {...props} className={classes.join(' ')}>
+    <Comp href='#/' {...props} className={classes.join(' ')}>
       {children}
     </Comp>
   );
