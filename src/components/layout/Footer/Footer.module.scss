@@ -4,6 +4,7 @@
   .footerMenu {
     background-color: $footer-bg;
     padding: 3rem 0;
+    text-align: center;
 
     .menuWrapper {
       h6 {
@@ -11,7 +12,6 @@
         text-transform: uppercase;
         margin: 0 0 1rem 0;
       }
-
       ul {
         margin: 0 0 1.5rem 0;
         padding: 0;
@@ -55,8 +55,17 @@
         color: rgb(169, 169, 169);
         font-size: 14px;
         line-height: 26px;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        p {
+          width: 50%;
+          position: relative;
+          right: 30px;
+        }
       }
     }
+
 
     .socialMedia {
       ul {
@@ -73,10 +82,22 @@
             text-decoration: none;
             @include hover-animation;
 
+            @media (max-width: 768px) {
+              a {
+                align-items: center;
+              }
+            }
+
             &:hover {
               color: $primary;
             }
           }
+        }
+      }
+      @media (max-width: 768px) {
+        ul {
+          position: relative;
+          bottom: 30px;
         }
       }
     }

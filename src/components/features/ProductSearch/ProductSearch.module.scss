@@ -1,60 +1,135 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $form-border-color;
   display: inline-flex;
   height: 45px;
   color: $text-color;
 
-  .category {
-    border-right: 1px solid $form-border-color;
-    display: flex;
-    align-items: center;
-    position: relative;
-
-    .icon:first-child {
-      color: $primary;
-      position: absolute;
-      left: 10px;
-      z-index: 0;
-    }
-
-    .icon:last-child {
-      position: absolute;
-      right: 10px;
-      z-index: 0;
-    }
-
-    select {
-      -webkit-appearance: none;
-      border: 0;
-      background-color: transparent;
-      padding: 5px 30px 5px 35px;
+    .category {
+      border: 1px solid $form-border-color;
       position: relative;
-      z-index: 1;
-    }
-  }
 
-  .searchField {
-    display: flex;
-    align-items: center;
-    position: relative;
+      &:hover {
+        border-bottom: none;
+        color: $primary;
+      }
+      .icon:first-child {
+        position: absolute;
+        left: 10px;
+        z-index: 0;
+      }
 
-    input {
-      border: 0;
-      padding-left: 10px;
-      font-size: 14px;
-      outline: none;
+      .icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
 
-      &::placeholder {
-        color: $text-color;
+        &:first-child {
+          color: $primary;
+          width: 20px;
+          left: 10px;
+        }
+
+        &:last-child {
+          width: 10px;
+          right: 10px;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+        white-space: nowrap;
+        cursor: pointer;
+        z-index: 10;
+
+        &:hover ul {
+          opacity: 1;
+        }
+
+        li {
+          position: relative;
+          line-height: 45px;
+          padding: 0 30px 0 40px;
+
+          ul {
+            position: absolute;
+            left: -1px;
+            width: calc(100% + 2px);
+            padding-bottom: 10px;
+            background-color: $body-bg;
+            border: 1px solid $form-border-color;
+            border-top: none;
+            opacity: 0;
+            transition: opacity .5s;
+
+            li {
+              line-height: 2;
+
+              &:hover {
+                color: $feature-box-border-color;
+              }
+            }
+          }
+        }
+        select {
+        -webkit-appearance: none;
+        border: 0;
+        background-color: transparent;
+        padding: 5px 30px 5px 35px;
+        position: relative;
+        z-index: 1;
+        outline: none;
+        font-size: 14px;
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      .searchField {
+        display: flex;
+        align-items: center;
+        position: relative;
+        border: 1px solid $form-border-color;
+        border-left: none;
+
+        input {
+          border: 0;
+          padding-left: 10px;
+          font-size: 14px;
+          outline: none;
+
+          &::placeholder {
+            color: $text-color;
+          }
+        }
+
+        button {
+          border: 0;
+          background-color: transparent;
+          outline: none;
+        }
       }
     }
 
-    button {
-      border: 0;
-      background-color: transparent;
-      outline: none;
+    @media (max-width: 576px) {
+      .root {
+        border: 0;
+        display: flex;
+        flex-direction: column;
+        .category {
+          border: 0;
+          width: fit-content;
+
+          select{
+            border: 1px solid $form-border-color;
+          }
+        }
+        
+        .searchField{
+          padding-top: 5px;
+        }
+      }
     }
   }
 }
