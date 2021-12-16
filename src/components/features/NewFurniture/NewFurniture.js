@@ -44,9 +44,9 @@ class NewFurniture extends React.Component {
     const promoInfo = promosAll.find(promo => promoId === promo.id);
     return promoInfo
       ? (promoPrice / (1 - promoInfo.rate)).toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'USD',
-        })
+        style: 'currency',
+        currency: 'USD',
+      })
       : '';
   }
 
@@ -72,15 +72,16 @@ class NewFurniture extends React.Component {
     }
 
     return (
+
       <Swipe leftAction={this.movePageToLeft} rightAction={this.movePageToRight}>
         <div className={styles.root}>
           <div className='container'>
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
-                <div className={'col-auto ' + styles.heading}>
+                <div className={'col-5 col-sm-4 col-md-3 col-lg-auto ' + styles.heading}>
                   <h3>New furniture</h3>
                 </div>
-                <div className={'col ' + styles.menu}>
+                <div className={'col-7 col-sm-8 col-md-7 col-lg ' + styles.menu}>
                   <ul>
                     {categories.map(item => (
                       <li key={item.id}>
@@ -94,7 +95,7 @@ class NewFurniture extends React.Component {
                     ))}
                   </ul>
                 </div>
-                <div className={'col-auto ' + styles.dots}>
+                <div className={'col-sm- col-md-2 col-lg-auto ' + styles.dots}>
                   <ul>{dots}</ul>
                 </div>
               </div>
@@ -103,9 +104,12 @@ class NewFurniture extends React.Component {
               {categoryProducts
                 .slice(activePage * 8, (activePage + 1) * 8)
                 .map(item => (
-                  <div key={item.id} className='col-3'>
+                  <div key={item.id}
+                    className={'col-6 col-md-4 col-lg-3 ' + styles.colExtraSmall}
+                  >
                     <ProductBox
                       {...item}
+                      changeFavourite={changeFavourite}
                       noPromoPrice={this.getNoPromoPrice(
                         item.price,
                         item.promo,
