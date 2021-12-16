@@ -1,27 +1,45 @@
 $base-padding: 24px;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+/*Color list*/
 
-$primary: #d58e32;
+$lightGray: #434343;
+$gray: #363636;
+$darkGray: #2a2a2a;
+$orange: #d58e32;
+$lightBlack: #292929;
+$black: #000;
+$grey: #a5a5a5;
+$white: #fff;
 
-$body-bg: #fff;
+// USED
 
-$text-color: #2a2a2a;
+$body-bg: $white;
 
-$form-border-color: #292929;
+$body-bg: $white;
 
-$feature-box-border-color: #b6b6b6;
 
-$text-grey: #a5a5a5;
+$header-topbar-bg: $lightGray;
+$header-bg: $gray;
 
-$text-dark: #000;
+$footer-claim-bg: $darkGray;
+$footer-bg: $gray;
+
+$feature-box-border-color: $lightGray;
+
+$primary: $orange;
+
+$text-color: $darkGray;
+
+$form-border-color: $lightBlack;
+
+$text-grey: $grey;
+
+$text-dark: $black;
 
 @mixin hover-animation {
   tansition: all 0.25s,
              color 0.25s,
              background-color 0.25s;
 }
+

@@ -16,7 +16,6 @@ const FeatureBoxes = () => (
     <div className='container'>
       <div className='row'>
         <div className='col-sm-6 col-lg-3'>
-
           <a href='#'>
             <FeatureBox icon={faTruck}>
               <h5>Free shipping</h5>
