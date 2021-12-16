@@ -16,7 +16,7 @@ const initialState = {
       //promo: 'sale',
       newFurniture: true,
       heart: true,
-      arrows: true,
+      arrows: false,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -38,7 +38,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       heart: false,
-      arrows: true,
+      arrows: false,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -60,7 +60,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       heart: true,
-      arrows: true,
+      arrows: false,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -82,7 +82,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       heart: false,
-      arrows: true,
+      arrows: false,
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -275,6 +275,11 @@ const initialState = {
   cart: {
     products: [],
   },
+
+  compare: {
+    products: [],
+  },
+
   promos: [
     {
       id: 'sale',

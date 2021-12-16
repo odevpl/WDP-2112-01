@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './NewFurniture.module.scss';
-import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipe from '../../common/Swipe/Swipe';
+import ProductCompareBar from '../../common/ProductCompareBar/ProductCompareBarContainer';
+import ProductBox from '../../common/ProductBox/ProductBoxContainer';
 
 class NewFurniture extends React.Component {
   state = {
@@ -111,12 +111,14 @@ class NewFurniture extends React.Component {
                         item.promo,
                         promos
                       )}
+                      changeFavourite={changeFavourite}
                     />
                   </div>
                 ))}
             </div>
           </div>
         </div>
+        <ProductCompareBar />
       </Swipe>
     );
   }
