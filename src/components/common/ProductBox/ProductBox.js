@@ -67,24 +67,17 @@ const ProductBox = ({
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant='outline' className={arrows ? styles.heart : ''}>
+          <Button
+            variant='outline'
+            className={arrows ? styles.heart : ''}
+            onClick={event => handleProductToCompare(event, id)}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
         <div className={styles.line}></div>
         <div className={styles.actions}>
-          <div className={styles.outlines}>
-            <Button variant='outline' className={heart ? styles.heart : ''}>
-              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-            </Button>
-            <Button
-              variant='outline'
-              className={arrows ? styles.heart : ''}
-              onClick={event => handleProductToCompare(event, id)}
-            >
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-            </Button>
-          </div>
+          <div className={styles.outlines}></div>
           <div className={styles.price}>
             <div className={styles.noPromoPrice}>
               <span>{noPromoPrice}</span>
@@ -98,7 +91,6 @@ const ProductBox = ({
     </div>
   );
 };
-
 
 ProductBox.propTypes = {
   children: PropTypes.node,

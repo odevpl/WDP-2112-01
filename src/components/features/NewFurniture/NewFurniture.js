@@ -44,9 +44,9 @@ class NewFurniture extends React.Component {
     const promoInfo = promosAll.find(promo => promoId === promo.id);
     return promoInfo
       ? (promoPrice / (1 - promoInfo.rate)).toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      })
+          style: 'currency',
+          currency: 'USD',
+        })
       : '';
   }
 
@@ -111,6 +111,7 @@ class NewFurniture extends React.Component {
                         item.promo,
                         promos
                       )}
+                      changeFavourite={changeFavourite}
                     />
                   </div>
                 ))}
