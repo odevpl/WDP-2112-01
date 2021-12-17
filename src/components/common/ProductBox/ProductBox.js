@@ -23,6 +23,7 @@ const ProductBox = ({
   compareList,
   compareCount,
   addToCompare,
+  image,
 }) => {
   const handleProductToCompare = (event, id) => {
     const inCompare = compareList.some(product => product.id === id);
@@ -35,6 +36,7 @@ const ProductBox = ({
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
+        <img src={image} alt='some bed' className={styles.image} />
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
@@ -106,6 +108,7 @@ ProductBox.propTypes = {
   compareCount: PropTypes.number,
   compareList: PropTypes.array,
   addToCompare: PropTypes.func,
+  image: PropTypes.node,
 };
 
 export default ProductBox;
