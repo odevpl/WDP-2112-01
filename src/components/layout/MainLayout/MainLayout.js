@@ -24,15 +24,14 @@ const MainLayout = props => {
   const { currentRenderingMode, children } = props;
   const [rerender, setRerender] = useState(false);
 
-  const handleViewportResize = () => {
-    const { min, max } = currentRenderingMode;
-    const viewportWidth = window.innerWidth;
-    if ((min && viewportWidth < min) || (max && viewportWidth > max)) {
-      setRerender(!rerender);
-    }
-  };
-
   useEffect(() => {
+    const handleViewportResize = () => {
+      const { min, max } = currentRenderingMode;
+      const viewportWidth = window.innerWidth;
+      if ((min && viewportWidth < min) || (max && viewportWidth > max)) {
+        setRerender(!rerender);
+      }
+    };
     setModeOnUpdate(props);
     if (!currentRenderingMode.id) {
       setRerender(!rerender);
@@ -40,7 +39,8 @@ const MainLayout = props => {
     }
     window.addEventListener('resize', handleViewportResize);
     return () => window.removeEventListener('resize', handleViewportResize);
-  }, [currentRenderingMode.id, handleViewportResize, props, rerender]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rerender]);
 
   return (
     <div>
