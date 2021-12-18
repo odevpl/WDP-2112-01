@@ -44,21 +44,52 @@ class NewFurniture extends React.Component {
     const promoInfo = promosAll.find(promo => promoId === promo.id);
     return promoInfo
       ? (promoPrice / (1 - promoInfo.rate)).toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      })
+          style: 'currency',
+          currency: 'USD',
+        })
       : '';
   }
 
+  getProductsPerPage(currentRenderingMode, renderingModes, defaultPages = 8) {
+    const renderingMode = renderingModes.find(
+      mode => mode.id === currentRenderingMode.id
+    );
+    return renderingMode ? renderingMode.productsPerPage : defaultPages;
+  }
+
   render() {
-    const { categories, products, promos, changeFavourite } = this.props;
+    const {
+      categories,
+      products,
+      promos,
+      changeFavourite,
+      currentRenderingMode,
+      renderingModes,
+    } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    this.pagesCount = Math.ceil(categoryProducts.length / 8);
+    const productsPerPage = this.getProductsPerPage(
+      currentRenderingMode,
+      renderingModes
+    );
+    this.pagesCount = Math.ceil(categoryProducts.length / productsPerPage);
 
     const dots = [];
-    for (let i = 0; i < this.pagesCount; i++) {
+    const highestDotIndex = 2;
+    const maxPageIndex = this.pagesCount - 1;
+    let startDot =
+      activePage > 0
+        ? activePage === maxPageIndex
+          ? activePage - highestDotIndex
+          : activePage - 1
+        : 0;
+    startDot = startDot < 0 ? 0 : startDot;
+    const lastDot =
+      startDot + highestDotIndex > maxPageIndex
+        ? maxPageIndex
+        : startDot + highestDotIndex;
+    for (let i = startDot; i <= lastDot; i++) {
       dots.push(
         <li>
           <a
@@ -72,13 +103,14 @@ class NewFurniture extends React.Component {
     }
 
     return (
-
       <Swipe leftAction={this.movePageToLeft} rightAction={this.movePageToRight}>
         <div className={styles.root}>
           <div className='container'>
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
-                <div className={'col-5 col-sm-4 col-md-3 col-lg-auto ' + styles.heading}>
+                <div
+                  className={'col-5 col-sm-4 col-md-3 col-lg-auto ' + styles.heading}
+                >
                   <h3>New furniture</h3>
                 </div>
                 <div className={'col-7 col-sm-8 col-md-7 col-lg ' + styles.menu}>
@@ -102,9 +134,10 @@ class NewFurniture extends React.Component {
             </div>
             <div className='row'>
               {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+                .slice(activePage * productsPerPage, (activePage + 1) * productsPerPage)
                 .map(item => (
-                  <div key={item.id}
+                  <div
+                    key={item.id}
                     className={'col-6 col-md-4 col-lg-3 ' + styles.colExtraSmall}
                   >
                     <ProductBox
@@ -154,6 +187,15 @@ NewFurniture.propTypes = {
       heart: PropTypes.bool,
     })
   ),
+  renderingModes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      min: PropTypes.number,
+      max: PropTypes.number,
+      productsPerPage: PropTypes.number,
+    })
+  ),
+  currentRenderingMode: PropTypes.object,
   changeFavourite: PropTypes.func,
 };
 
@@ -161,6 +203,8 @@ NewFurniture.defaultProps = {
   categories: [],
   products: [],
   promos: [],
+  renderingModes: [],
+  currentRenderingMode: {},
 };
 
 export default NewFurniture;
