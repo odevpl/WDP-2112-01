@@ -1,9 +1,10 @@
-import { connect } from 'react-redux';
-import { getAllToCompare, removeProductFromCompare } from '../../../redux/compareRedux';
+import { getAll, removeProductFromCompare } from '../../../redux/compareRedux';
+
 import ProductCompareBar from './ProductCompareBar';
+import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  compareList: getAllToCompare(state),
+  compareList: getAll(state),
 });
 
 const mapDispatchToProps = dispatch => ({

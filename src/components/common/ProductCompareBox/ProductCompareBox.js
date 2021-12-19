@@ -4,12 +4,11 @@ import React from 'react';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import styles from './ProductCompareBox.module.scss';
 
-const ProductCompareBox = ({ id, img, remove }) => {
+const ProductCompareBox = ({ id, image, remove }) => {
   return (
     <div className={styles.root}>
       <button onClick={() => remove(id)} className={`container ${styles.photo}`}>
-        {/* do poprawy jak będą zdjęcia */}
-        <img src={img} alt='photos to be' />
+        <img src={image} alt='some bed' className={styles.image} />
         <div className={styles.icon}>
           <FontAwesomeIcon icon={faTimesCircle} className='fa-2x' />
         </div>
@@ -20,7 +19,7 @@ const ProductCompareBox = ({ id, img, remove }) => {
 
 ProductCompareBox.propTypes = {
   id: PropTypes.string,
-  img: PropTypes.string,
+  image: PropTypes.string,
   remove: PropTypes.func,
 };
 
