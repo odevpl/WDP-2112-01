@@ -1,77 +1,86 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  border: 1px solid $form-border-color;
   display: inline-flex;
   height: 45px;
-  font-size: 14px;
   color: $text-color;
 
   .category {
-    border: 1px solid $form-border-color;
-    position: relative;
+    border-right: 1px solid $form-border-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    width: 230px;
+    cursor: pointer;
+    
 
-    &:hover {
-      border-bottom: none;
+    .icon:first-child {
       color: $primary;
     }
 
-    .icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+    .dropdown {
+      position: relative;
 
-      &:first-child {
+      .dropdownContainer {
         color: $primary;
-        width: 20px;
-        left: 10px;
+        text-transform: capitalize;
       }
 
-      &:last-child {
-        width: 10px;
-        right: 10px;
-      }
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-      white-space: nowrap;
-      cursor: pointer;
-      z-index: 10;
-
-      &:hover ul {
-        opacity: 1;
+      .dropdownContent {
+        display: none;
+        position: absolute;
+        top: 34px;
+        background: white;
+        width: 170px;
+        z-index: 1;
+        border: 1px solid $form-border-color;
       }
 
-      li {
-        position: relative;
-        line-height: 45px;
-        padding: 0 30px 0 40px;
+      .dropdownContent li {
+        color: $primary;
+        padding: 12px 10px;
+        text-decoration: none;
+        display: block;
+        text-transform: uppercase;
+      }
 
-        ul {
-          position: absolute;
-          left: -1px;
-          width: calc(100% + 2px);
-          padding-bottom: 10px;
-          background-color: $body-bg;
-          border: 1px solid $form-border-color;
-          border-top: none;
-          opacity: 0;
-          transition: opacity .5s;
+      .dropdownContent li ul {
+        display: none;
+      }
 
-          li {
-            line-height: 2;
+      .dropdownContent li:hover ul {
+        display: block;
+      }
 
-            &:hover {
-              color: $feature-box-border-color;
-            }
-          }
+      .dropdownContent li:hover {
+        background: $primary;
+
+        a {
+          text-decoration: none;
+          color: white;
         }
       }
+    }
+  }
+
+  .category:hover {
+    .dropdownContent {
+      display: block;
+    }
+    .dropdownContainer {
+      font-weight: bolder;
+      z-index: 1;
+      font-size: 14px;
+    }
+
+    select:hover {
+      color: $primary;
+    }
+
+    select:focus {
+      outline: none;
     }
   }
 
@@ -79,18 +88,20 @@
     display: flex;
     align-items: center;
     position: relative;
-    border: 1px solid $form-border-color;
-    border-left: none;
 
     input {
       border: 0;
+      flex: 1;
       padding-left: 10px;
       font-size: 14px;
       outline: none;
 
       &::placeholder {
-        color: $grey;
+        color: $text-color;
       }
+    }
+    & a {
+      margin: auto 15px;
     }
 
     button {
@@ -100,24 +111,22 @@
     }
   }
 }
-
 @media (max-width: 576px) {
   .root {
+    border: 0;
     display: flex;
-    margin-top: 18px;
-
+    flex-direction: column;
     .category {
-      display: none;
-    }
+      border: 0;
+      visibility: hidden;
 
-    .searchField{
-      border-left: 1px solid $form-border-color;
-      width: 100%;
-      justify-content: space-between;
-
-      input {
-        width: 100%;
+      .icon:last-child {
+        position: relative;
+        padding-right: 5px;
       }
+    }
+    .searchField{
+      border: 1px solid $form-border-color;
     }
   }
 }

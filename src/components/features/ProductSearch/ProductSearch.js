@@ -9,9 +9,11 @@ const ProductSearch = ({ allCategories, activeCategoryId, changeActiveCategory }
   <form action='' className={styles.root}>
     <div className={styles.category}>
       <FontAwesomeIcon className={styles.icon} icon={faListUl} />
-      <ul>
-        <li>
-          Select a category
+      <div className={styles.dropdown}>
+        <div className={styles.dropdownContainer}>
+          <span>select category</span>
+        </div>
+        <div className={styles.dropdownContent}>
           <ul>
             <li>
               <a href='#'>Bed</a>
@@ -29,8 +31,8 @@ const ProductSearch = ({ allCategories, activeCategoryId, changeActiveCategory }
               <a href='#'>Dining</a>
             </li>
           </ul>
-        </li>
-      </ul>
+        </div>
+      </div>
       <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
     </div>
     <div className={styles.searchField}>
