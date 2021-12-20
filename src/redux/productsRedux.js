@@ -22,7 +22,6 @@ export const createActionChangeFavourite = payload => ({
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case CHANGE_FAVOURITE: {
-      console.log('payload', action.payload);
       return statePart.map(product =>
         product.id === action.payload.id
           ? { ...product, heart: action.payload.heart }

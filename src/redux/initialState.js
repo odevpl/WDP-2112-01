@@ -310,6 +310,31 @@ const initialState = {
       rate: 0.2,
     },
   ],
+
+  renderingModes: [
+    {
+      id: 'desktop',
+      min: 992,
+      productsPerPage: 8,
+    },
+    {
+      id: 'tablet',
+      min: 768,
+      max: 991,
+      productsPerPage: 3,
+    },
+    {
+      id: 'mobile',
+      max: 767,
+      min: 480,
+      productsPerPage: 2,
+    },
+    {
+      id: 'extraSmall',
+      max: 479,
+      productsPerPage: 1,
+    },
+  ],
 };
 
 export default initialState;
