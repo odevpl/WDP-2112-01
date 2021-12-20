@@ -7,24 +7,22 @@
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
-  z-index: 1;
 
   .icon {
     font-size: 80px;
     cursor: pointer;
     color: $text-grey;
-    margin-top: 15vh;
 
     &:hover {
       color: $primary;
     }
 
     &:first-of-type {
-      margin-left: 5%;
+      margin-left: 120px;
     }
 
     &:last-of-type {
-      margin-right: 5%;
+      margin-right: 120px;
     }
   }
 }

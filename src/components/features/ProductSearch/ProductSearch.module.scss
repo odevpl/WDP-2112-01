@@ -3,120 +3,132 @@
 .root {
   display: inline-flex;
   height: 45px;
-  font-size: 14px;
   color: $text-color;
 
-  .category {
-    border: 1px solid $form-border-color;
-    position: relative;
+    .category {
+      border: 1px solid $form-border-color;
+      position: relative;
 
-    &:hover {
-      border-bottom: none;
-      color: $primary;
-    }
-
-    .icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-
-      &:first-child {
+      &:hover {
+        border-bottom: none;
         color: $primary;
-        width: 20px;
+      }
+      .icon:first-child {
+        position: absolute;
         left: 10px;
+        z-index: 0;
       }
 
-      &:last-child {
-        width: 10px;
-        right: 10px;
-      }
-    }
+      .icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
 
-    a {
-      text-decoration: none;
-    }
+        &:first-child {
+          color: $primary;
+          width: 20px;
+          left: 10px;
+        }
 
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-      white-space: nowrap;
-      cursor: pointer;
-      z-index: 10;
-
-      &:hover ul {
-        opacity: 1;
+        &:last-child {
+          width: 10px;
+          right: 10px;
+        }
       }
 
-      li {
-        position: relative;
-        line-height: 45px;
-        padding: 0 30px 0 40px;
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+        white-space: nowrap;
+        cursor: pointer;
+        z-index: 10;
 
-        ul {
-          position: absolute;
-          left: -1px;
-          width: calc(100% + 2px);
-          padding-bottom: 10px;
-          background-color: $body-bg;
-          border: 1px solid $form-border-color;
-          border-top: none;
-          opacity: 0;
-          transition: opacity .5s;
+        &:hover ul {
+          opacity: 1;
+        }
 
-          li {
-            line-height: 2;
+        li {
+          position: relative;
+          line-height: 45px;
+          padding: 0 30px 0 40px;
 
-            &:hover {
-              color: $feature-box-border-color;
+          ul {
+            position: absolute;
+            left: -1px;
+            width: calc(100% + 2px);
+            padding-bottom: 10px;
+            background-color: $body-bg;
+            border: 1px solid $form-border-color;
+            border-top: none;
+            opacity: 0;
+            transition: opacity .5s;
+
+            li {
+              line-height: 2;
+
+              &:hover {
+                color: $feature-box-border-color;
+              }
             }
           }
         }
+        select {
+        -webkit-appearance: none;
+        border: 0;
+        background-color: transparent;
+        padding: 5px 30px 5px 35px;
+        position: relative;
+        z-index: 1;
+        outline: none;
+        font-size: 14px;
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      .searchField {
+        display: flex;
+        align-items: center;
+        position: relative;
+        border: 1px solid $form-border-color;
+        border-left: none;
+
+        input {
+          border: 0;
+          padding-left: 10px;
+          font-size: 14px;
+          outline: none;
+
+          &::placeholder {
+            color: $text-color;
+          }
+        }
+
+        button {
+          border: 0;
+          background-color: transparent;
+          outline: none;
+        }
       }
     }
-  }
 
-  .searchField {
-    display: flex;
-    align-items: center;
-    position: relative;
-    border: 1px solid $form-border-color;
-    border-left: none;
+    @media (max-width: 576px) {
+      .root {
+        border: 0;
+        display: flex;
+        flex-direction: column;
+        .category {
+          border: 0;
+          width: fit-content;
 
-    input {
-      border: 0;
-      padding-left: 10px;
-      font-size: 14px;
-      outline: none;
-
-      &::placeholder {
-        color: $grey;
-      }
-    }
-
-    button {
-      border: 0;
-      background-color: transparent;
-      outline: none;
-    }
-  }
-}
-
-@media (max-width: 576px) {
-  .root {
-    display: flex;
-    margin-top: 18px;
-
-    .category {
-      display: none;
-    }
-
-    .searchField{
-      border-left: 1px solid $form-border-color;
-      width: 100%;
-      justify-content: space-between;
-
-      input {
-        width: 100%;
+          select{
+            border: 1px solid $form-border-color;
+          }
+        }
+        
+        .searchField{
+          padding-top: 5px;
+        }
       }
     }
   }

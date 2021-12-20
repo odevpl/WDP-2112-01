@@ -25,7 +25,7 @@ const ProductBox = ({
   addToCompare,
   image,
 }) => {
-  const handleAddToCompare = (event, id) => {
+  const handleProductToCompare = (event, id) => {
     const inCompare = compareList.some(product => product.id === id);
     event.preventDefault();
     if (compareCount < 4 && !inCompare) {
@@ -72,14 +72,12 @@ const ProductBox = ({
           <Button
             variant='outline'
             className={arrows ? styles.heart : ''}
-            onClick={event => handleAddToCompare(event, id)}
+            onClick={event => handleProductToCompare(event, id)}
           >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
-        {/* MM change start
-          <div className={styles.line}></div>
-        MM change end*/}
+        <div className={styles.line}></div>
         <div className={styles.actions}>
           <div className={styles.outlines}></div>
           <div className={styles.price}>
