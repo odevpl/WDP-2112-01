@@ -13,11 +13,21 @@ const ProductSearch = ({ allCategories, activeCategoryId, changeActiveCategory }
         <li>
           Select a category
           <ul>
-            <li>Bed</li>
-            <li>Chair</li>
-            <li>Sofa</li>
-            <li>Table</li>
-            <li>Dining</li>
+            <li>
+              <a href='#'>Bed</a>
+            </li>
+            <li>
+              <a href='#'>Chair</a>
+            </li>
+            <li>
+              <a href='#'>Sofa</a>
+            </li>
+            <li>
+              <a href='#'>Table</a>
+            </li>
+            <li>
+              <a href='#'>Dining</a>
+            </li>
           </ul>
         </li>
       </ul>
