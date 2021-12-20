@@ -9,23 +9,35 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    fade: false,
   };
 
+  handleStateChange(changedItem, changeType) {
+    this.setState({ fade: true });
+    this.timer = setTimeout(() => {
+      this.setState({ fade: false });
+      const newState = {};
+      newState[changeType] = changedItem;
+      this.setState(newState);
+    }, 500);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
+
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.handleStateChange(newPage, 'activePage');
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.handleStateChange(newCategory, 'activeCategory');
   }
 
   movePageToLeft = () => {
     const activePage = this.state.activePage;
     if (activePage > 0) {
-      this.setState({
-        ...this.state,
-        activePage: activePage - 1,
-      });
+      this.handlePageChange(activePage - 1);
     }
   };
 
@@ -33,10 +45,7 @@ class NewFurniture extends React.Component {
     const activePage = this.state.activePage;
     const maxPageIndex = this.pagesCount - 1;
     if (activePage < maxPageIndex) {
-      this.setState({
-        ...this.state,
-        activePage: activePage + 1,
-      });
+      this.handlePageChange(activePage + 1);
     }
   };
 
@@ -66,8 +75,7 @@ class NewFurniture extends React.Component {
       currentRenderingMode,
       renderingModes,
     } = this.props;
-    const { activeCategory, activePage } = this.state;
-
+    const { activeCategory, activePage, fade } = this.state;
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const productsPerPage = this.getProductsPerPage(
       currentRenderingMode,
@@ -132,7 +140,7 @@ class NewFurniture extends React.Component {
                 </div>
               </div>
             </div>
-            <div className='row'>
+            <div className={`row ${styles.productsList} ${fade ? styles.fade : ``}`}>
               {categoryProducts
                 .slice(activePage * productsPerPage, (activePage + 1) * productsPerPage)
                 .map(item => (
@@ -148,7 +156,6 @@ class NewFurniture extends React.Component {
                         item.promo,
                         promos
                       )}
-                      changeFavourite={changeFavourite}
                     />
                   </div>
                 ))}
