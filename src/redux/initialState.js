@@ -306,6 +306,22 @@ const initialState = {
     products: [],
   },
 
+  chairs: [
+    {
+      id: 'chair-1',
+      name: 'chair 1',
+      image: 'src=../../images/chair/chair_1.jpg',
+    },
+  ],
+
+  sofa: [
+    {
+      id: 'sofa-1',
+      name: 'sofa 1',
+      image: 'src=../../images/sofa/sofa_1.jpg',
+    },
+  ],
+
   promos: [
     {
       id: 'sale',
