@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import StarsRating from '../StarsRating/StarsRatingContainer';
 
 const ProductBox = ({
   name,
@@ -24,6 +25,8 @@ const ProductBox = ({
   compareCount,
   addToCompare,
   image,
+  userRating,
+  isHovered,
 }) => {
   const handleAddToCompare = (event, id) => {
     const inCompare = compareList.some(product => product.id === id);
@@ -34,7 +37,11 @@ const ProductBox = ({
   };
 
   return (
-    <div className={styles.root}>
+    <div
+      className={styles.root}
+      onMouseEnter={() => isHovered(true)}
+      onMouseLeave={() => isHovered(false)}
+    >
       <div className={styles.photo}>
         <img src={image} alt='some bed' className={styles.image} />
         {promo && <div className={styles.sale}>{promo}</div>}
@@ -48,15 +55,7 @@ const ProductBox = ({
       <div className={styles.content}>
         <h5>{name}</h5>
         <div className={styles.stars}>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-              )}
-            </a>
-          ))}
+          <StarsRating stars={stars} id={id} userRating={userRating} />
         </div>
       </div>
       <div className={styles.line}></div>
@@ -111,6 +110,12 @@ ProductBox.propTypes = {
   compareList: PropTypes.array,
   addToCompare: PropTypes.func,
   image: PropTypes.node,
+  isHovered: PropTypes.func,
+  userRating: PropTypes.number,
+};
+
+ProductBox.defaultProps = {
+  isHovered: () => null,
 };
 
 export default ProductBox;

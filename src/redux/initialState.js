@@ -18,6 +18,7 @@ const initialState = {
       heart: true,
       arrows: false,
       image: 'src=../../images/bed/bed_1.jpeg',
+      userRating: 3,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -30,6 +31,7 @@ const initialState = {
       heart: true,
       arrows: false,
       image: 'src=../../images/bed/bed_2.jpeg',
+      userRating: 1,
     },
     {
       id: 'aenean-ru-bristique-3',
