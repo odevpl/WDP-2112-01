@@ -43,7 +43,7 @@ const ProductBox = ({
       onMouseLeave={() => isHovered(false)}
     >
       <div className={styles.photo}>
-        <img src={image} alt='some bed' className={styles.image} />
+        <img src={image} alt='some furniture' className={styles.image} />
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
