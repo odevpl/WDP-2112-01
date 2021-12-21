@@ -11,11 +11,16 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 // action types
 export const CHANGE_FAVOURITE = createActionName('CHANGE_FAVOURITE');
+export const SET_RATING = createActionName('SET_RATING');
 
 // action creators
 export const createActionChangeFavourite = payload => ({
   payload,
   type: CHANGE_FAVOURITE,
+});
+export const setRating = payload => ({
+  payload,
+  type: SET_RATING,
 });
 
 /* reducer */
@@ -28,6 +33,16 @@ export default function reducer(statePart = [], action = {}) {
           : { ...product }
       );
     }
+    case SET_RATING:
+      return statePart.map(rating => {
+        if (rating.id !== action.payload.id) {
+          return rating;
+        }
+        return {
+          ...rating,
+          userRating: action.payload.userRating,
+        };
+      });
     default:
       return statePart;
   }
