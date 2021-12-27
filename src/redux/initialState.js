@@ -1208,6 +1208,14 @@ const initialState = {
       productsPerPage: 1,
     },
   ],
+  feedback: [
+    {
+      id: 'feedback-1',
+      clientName: 'John Smith',
+      clientText: 'Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.',
+      clientImage: 'src=../../images/feedback/feedback_1.jpg',
+    },
+  ],
 };
 
 export default initialState;
