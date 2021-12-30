@@ -1183,7 +1183,6 @@ const initialState = {
       rate: 0.2,
     },
   ],
-
   renderingModes: [
     {
       id: 'desktop',
@@ -1207,6 +1206,58 @@ const initialState = {
       max: 479,
       productsPerPage: 1,
     },
+  ],
+  brands: [
+    {
+      id: 'brand-1',
+      name: 'brand 1',
+      image: 'src=../../images/brands/brands_1.jpg',
+    },
+    {
+      id: 'brand-2',
+      name: 'brand 2',
+      image: 'src=../../images/brands/brands_2.jpg',
+    },
+    {
+      id: 'brand-3',
+      name: 'brand 3',
+      image: 'src=../../images/brands/brands_3.jpg',
+    },
+    {
+      id: 'brand-4',
+      name: 'brand 4',
+      image: 'src=../../images/brands/brands_4.jpg',
+    },
+    {
+      id: 'brand-5',
+      name: 'brand 5',
+      image: 'src=../../images/brands/brands_5.jpg',
+    },
+    {
+      id: 'brand-6',
+      name: 'brand 6',
+      image: 'src=../../images/brands/brands_1.jpg',
+    },
+    {
+      id: 'brand-7',
+      name: 'brand 7',
+      image: 'src=../../images/brands/brands_2.jpg',
+    },
+    {
+      id: 'brand-8',
+      name: 'brand 8',
+      image: 'src=../../images/brands/brands_3.jpg',
+    },
+    {
+      id: 'brand-9',
+      name: 'brand 9',
+      image: 'src=../../images/brands/brands_4.jpg',
+    },
+    {
+      id: 'brand-10',
+      name: 'brand 10',
+      image: 'src=../../images/brands/brands_5.jpg',
+    }
   ],
   feedback: [
     {

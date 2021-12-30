@@ -1,0 +1,34 @@
+
+@import "../../../styles/settings.scss";
+
+.root {
+  width: 100%;
+  margin-left: 25px;
+  padding: 3rem 0 4rem 0;
+
+  .borderline {
+    padding: 1rem 0;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    position: relative;
+    right: 27px;
+  }
+
+  img {
+    width: 140px;
+    height: 85px;
+    border: 1px solid lightgrey;
+    padding: 8px;
+  }
+
+  .button {
+    background-color: $footer-claim-bg;
+    position: relative;
+    left: 32px;
+    top: 32px;
+    border: 1px solid $footer-claim-bg;
+    border-width: 30px 10px 30px 10px;
+  }
+}
+
+
