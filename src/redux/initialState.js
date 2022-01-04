@@ -1257,14 +1257,26 @@ const initialState = {
       id: 'brand-10',
       name: 'brand 10',
       image: 'src=../../images/brands/brands_5.jpg',
-    }
+    },
   ],
-  feedback: [
+  feedbacks: [
     {
       id: 'feedback-1',
       clientName: 'John Smith',
       clientText: 'Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.',
       clientImage: 'src=../../images/feedback/feedback_1.jpg',
+    },
+    {
+      id: 'feedback-2',
+      clientName: 'Maria Jones',
+      clientText: 'Debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.',
+      clientImage: 'src=../../images/feedback/feedback_2.jpg',
+    },
+    {
+      id: 'feedback-3',
+      clientName: 'Jack Taylor',
+      clientText: 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis.',
+      clientImage: 'src=../../images/feedback/feedback_3.jpg',
     },
   ],
 };

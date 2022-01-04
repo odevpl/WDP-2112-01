@@ -6,7 +6,7 @@ import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 import Promotions from '../../features/Promotions/Promotions';
 import Brands from '../../layout/Brands/Brands';
-import FeedBack from '../../layout/FeedBack/FeedBack';
+import FeedBack from '../../layout/FeedBack/FeedBackContainer';
 
 const Homepage = () => (
   <div className={styles.root}>
