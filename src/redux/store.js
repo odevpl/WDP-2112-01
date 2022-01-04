@@ -8,6 +8,7 @@ import promosReducer from './promosRedux';
 import compareReducer from './compareRedux';
 import { renderingModesReducer } from './mainLayoutRedux';
 import { currentRenderingModeReducer } from './mainLayoutRedux';
+import feedbacksReducer from './feedbacksRedux';
 
 // define reducers
 const reducers = {
@@ -18,6 +19,7 @@ const reducers = {
   compare: compareReducer,
   renderingModes: renderingModesReducer,
   currentRenderingMode: currentRenderingModeReducer,
+  feedbacks: feedbacksReducer,
 };
 
 // add blank reducers for initial state properties without reducers
